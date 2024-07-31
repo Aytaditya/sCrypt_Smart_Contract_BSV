@@ -5,11 +5,12 @@ import { NeucronSigner } from 'neucron-signer'
 async function main() {
     const provider = new DefaultProvider({ network: bsv.Networks.mainnet })
     const signer = new NeucronSigner(provider)
-    const amount = 1
+    const amount = 1 //amount of satoshis to be sent to the contract
 
     await signer.login('sales@timechainlabs.io', 'string')
     await Demo.loadArtifact()
 
+    // creating a secret message
     const message = toByteString('timechainlabs', true)
     const instance = new Demo(sha256(message))
     await instance.connect(signer)
