@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { DefaultProvider, sha256, bsv, toByteString } from 'scrypt-ts'
 import { Root } from './src/contracts/root'
 import { NeucronSigner } from 'neucron-signer'
@@ -18,7 +19,7 @@ async function main() {
     console.log(
         'smart lock deployed : https://whatsonchain.com/tx/' + deployTx.id
     )
-    
+
     const root = 2
     await new Promise((f) => setTimeout(f, 5000))
     const { tx: callTx } = await instance.methods.unlock(root)
